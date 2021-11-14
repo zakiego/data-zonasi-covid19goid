@@ -1,9 +1,8 @@
 name: Update Zonasi
 
 on:
-  push
-  # schedule:
-  #   - cron: "0 17 * * *" #run every at 17:00:00s UTC / 24.00 GMT +7 / 01.00 GMT +8
+  schedule:
+    - cron: "0 1 * * *" #run every at 01:00:00s UTC / 08.00 GMT +7 / 09.00 GMT +8
 
 jobs:
   build:
