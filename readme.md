@@ -1,6 +1,4 @@
-# Data Zonasi Covid-19 Indonesia
-
-Diupdate setiap hari dengan Github Actions.
+# Data Zonasi Covid-19 Indonesia dari covid19.go.id
 
 #### Sumber API
 
