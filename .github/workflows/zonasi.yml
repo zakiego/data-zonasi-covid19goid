@@ -40,7 +40,7 @@ jobs:
           echo $status
 
       - name: Commit File
-        if: steps.status.outputs.status == 1
+        if: steps.status.outputs.status == '1'
         run: |
           echo "status"
           now=$(date)
