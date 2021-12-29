@@ -37,8 +37,6 @@ jobs:
         id: check_status
         run: |
           STATUS=$(git status --porcelain | wc -l)
-          echo "Mock test if 1"
-          STATUS=1
           echo "::set-output name=STATUS::$STATUS"
 
       - name: Commit File
