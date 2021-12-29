@@ -36,7 +36,7 @@ jobs:
       - name: Check is need to push
         id: status
         run: |
-          status=$(git status --porcelain | wc -l)
+          status=1
           echo $status
 
       - name: Commit File
