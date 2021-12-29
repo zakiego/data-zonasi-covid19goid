@@ -22,17 +22,30 @@ jobs:
           pip install pandas
           pip install requests
           pip install numpy
+
       - name: Execute Script
         run: |
           python zonasi.py
-      - name: Commit File
+
+      - name: Add File
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add .
+
+      - name: Check is need to push
+        run: |
+        status=$(git status --porcelain | wc -l)
+
+      - name: Commit File
+        if:  $status==1
+        run: |
+          echo "status"
           now=$(date)
           git commit -m "Auto Commit $now"
+    
       - name: Push Changes
+        if:  $status==1
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
