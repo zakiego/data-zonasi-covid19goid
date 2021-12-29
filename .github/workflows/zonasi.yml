@@ -34,18 +34,20 @@ jobs:
           git add .
 
       - name: Check is need to push
+        id: status
         run: |
           status=$(git status --porcelain | wc -l)
+          echo $status
 
       - name: Commit File
-        if: $status==1
+        if: steps.main.outputs.status == 1
         run: |
           echo "status"
           now=$(date)
           git commit -m "Auto Commit $now"
 
       - name: Push Changes
-        if: $status==1
+        if: steps.main.outputs.status == 1
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
