@@ -40,14 +40,14 @@ jobs:
           echo $status
 
       - name: Commit File
-        if: steps.main.outputs.status == 1
+        if: steps.status.outputs.status == 1
         run: |
           echo "status"
           now=$(date)
           git commit -m "Auto Commit $now"
 
       - name: Push Changes
-        if: steps.main.outputs.status == 1
+        if: steps.status.outputs.status == 1
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
