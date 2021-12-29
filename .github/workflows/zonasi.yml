@@ -40,7 +40,42 @@ jobs:
           echo $status
 
       - name: Commit File
-        if: steps.status.outputs.status == '1'
+        if: ${{steps.status.outputs.status == '1'}}
+        run: |
+          echo "status"
+          now=$(date)
+          git commit -m "Auto Commit $now"
+
+      - name: Commit File 2
+        if: ${{steps.status.outputs.status == 1}}
+        run: |
+          echo "status"
+          now=$(date)
+          git commit -m "Auto Commit $now"
+
+      - name: Commit File 3
+        if: ${{(steps.status.outputs.status == '1')}}
+        run: |
+          echo "status"
+          now=$(date)
+          git commit -m "Auto Commit $now"
+
+      - name: Commit File 4
+        if: ${{(steps.status.outputs.status == 1)}}
+        run: |
+          echo "status"
+          now=$(date)
+          git commit -m "Auto Commit $now"
+
+      - name: Commit File 5
+        if: $[[steps.status.outputs.status == '1']]
+        run: |
+          echo "status"
+          now=$(date)
+          git commit -m "Auto Commit $now"
+
+      - name: Commit File 6
+        if: $[[steps.status.outputs.status == 1]]
         run: |
           echo "status"
           now=$(date)
