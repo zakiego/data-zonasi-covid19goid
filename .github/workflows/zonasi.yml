@@ -1,8 +1,9 @@
 name: Update Zonasi
 
 on:
-  schedule:
-    - cron: "0 1 * * *" #run every at 01:00:00s UTC / 08.00 GMT +7 / 09.00 GMT +8
+  push
+  # schedule:
+  #   - cron: "0 1 * * *" #run every at 01:00:00s UTC / 08.00 GMT +7 / 09.00 GMT +8
 
 jobs:
   build:
@@ -37,17 +38,18 @@ jobs:
         id: check_status
         run: |
           STATUS=$(git status --porcelain | wc -l)
+          echo "number of files that need to be committed:" $STATUS
           echo "::set-output name=STATUS::$STATUS"
 
       - name: Commit File
-        if: steps.check_status.outputs.STATUS == 1
+        if: steps.check_status.outputs.STATUS > 0
         run: |
           echo "status"
           now=$(date)
           git commit -m "Auto Commit $now"
 
       - name: Push Changes
-        if: steps.check_status.outputs.STATUS == 1
+        if: steps.check_status.outputs.STATUS > 0
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
