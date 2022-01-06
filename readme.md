@@ -14,3 +14,4 @@ Data tanggal yang tersedia:
 * 05 Desember 2021
 * 12 Desember 2021
 * 19 Desember 2021
+* 02 Januari 2022
