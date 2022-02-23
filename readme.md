@@ -20,3 +20,4 @@ Data tanggal yang tersedia:
 * 30 Januari 2022
 * 06 Februari 2022
 * 13 Februari 2022
+* 20 Februari 2022
