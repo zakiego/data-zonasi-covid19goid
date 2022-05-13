@@ -28,3 +28,4 @@ Data tanggal yang tersedia:
 * 03 April 2022
 * 10 April 2022
 * 24 April 2022
+* 01 Mei 2022
