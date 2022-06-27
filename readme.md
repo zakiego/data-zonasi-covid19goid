@@ -32,3 +32,4 @@ Data tanggal yang tersedia:
 * 08 Mei 2022
 * 15 Mei 2022
 * 29 Mei 2022
+* 19 Juni 2022
